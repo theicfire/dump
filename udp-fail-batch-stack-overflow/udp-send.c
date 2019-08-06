@@ -60,7 +60,7 @@ int main(void)
 	for (int j = 0; j < 500; j++) {
 		for (i=0; i < 100; i++) {
 			sprintf(buf, "This is packet %d", i);
-			if (sendto(fd, buf, 1024, 0, (struct sockaddr *)&remaddr, slen)==-1)
+			if (sendto(fd, buf, 1000, 0, (struct sockaddr *)&remaddr, slen)==-1)
 				perror("sendto");
 		}
 		usleep(100000);
