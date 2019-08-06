@@ -48,14 +48,15 @@ main(int argc, char **argv)
 	}
 
 	/* now loop, receiving data and printing what we received */
+	int count = 0;
 	for (;;) {
-		printf("waiting on port %d\n", SERVICE_PORT);
-		recvlen = recvfrom(fd, buf, BUFSIZE, 0, (struct sockaddr *)&remaddr, &addrlen);
-		printf("received %d bytes\n", recvlen);
-		if (recvlen > 0) {
-			buf[recvlen] = 0;
-			printf("received message: \"%s\"\n", buf);
-		}
+			recvlen = recvfrom(fd, buf, BUFSIZE, 0, (struct sockaddr *)&remaddr, &addrlen);
+			if (recvlen > 0) {
+					printf("rec %d\n", count);
+					count++;
+					//buf[recvlen] = 0;
+					//printf("received message: \"%s\"\n", buf);
+			}
 	}
 	/* never exits */
 }
