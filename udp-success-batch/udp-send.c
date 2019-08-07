@@ -63,7 +63,7 @@ int main(void)
 			if (sendto(fd, buf, 1000, 0, (struct sockaddr *)&remaddr, slen)==-1)
 				perror("sendto");
 		}
-		usleep(100000);
+		usleep(10000);
 	}
 	close(fd);
 	return 0;
